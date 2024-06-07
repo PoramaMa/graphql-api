@@ -2,6 +2,8 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './graphql/models/User';
+import { UserSetting } from './graphql/models/UserSetting';
 import { UserResolver } from './graphql/resolvers/UserResolver';
 import { UserSettingsResolver } from './graphql/resolvers/UserSettingsResolver';
 require('dotenv').config();
@@ -19,7 +21,7 @@ require('dotenv').config();
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: process.env.DB_DATABASE,
-      entities: [],
+      entities: [User, UserSetting],
       synchronize: true,
     }),
   ],
