@@ -5,9 +5,9 @@ export class CreateUserSettingsInput {
   @Field((type) => Int)
   userId: number;
 
-  @Field({ nullable: true })
+  @Field({ defaultValue: false, nullable: true })
   receiveNotification: boolean;
 
-  @Field({ nullable: true })
+  @Field({ defaultValue: false, nullable: true })
   receiveEmails: boolean;
 }
