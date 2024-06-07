@@ -9,7 +9,7 @@ import {
   Resolver,
 } from '@nestjs/graphql';
 import { mockUserSettings } from 'src/_mocks/mockUserSettings';
-import { UserSetting } from '../graphql/models/UserSetting';
+import { UserSetting } from '../user_setting/entities/user_setting.entitie';
 import { CreateUserInput } from './dto/create-user.dto';
 import { User } from './entities/users.entity';
 import { UserService } from './users.service';

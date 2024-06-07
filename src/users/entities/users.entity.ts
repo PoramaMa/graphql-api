@@ -6,7 +6,7 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { UserSetting } from '../../graphql/models/UserSetting';
+import { UserSetting } from '../../user_setting/entities/user_setting.entitie';
 
 @Entity({ name: 'users' })
 @ObjectType()
