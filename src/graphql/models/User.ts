@@ -1,5 +1,11 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { UserSetting } from './UserSetting';
 
 @Entity({ name: 'users' })
@@ -17,7 +23,8 @@ export class User {
   @Field({ nullable: true })
   displayName?: string;
 
-  @Column()
+  @OneToOne(() => UserSetting)
+  @JoinColumn()
   @Field({ nullable: true })
   settings?: UserSetting;
 }

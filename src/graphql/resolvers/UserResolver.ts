@@ -9,9 +9,9 @@ import {
 } from '@nestjs/graphql';
 import { mockUsers } from 'src/_mocks/mockUsers';
 import { mockUserSettings } from 'src/_mocks/mockUserSettings';
+import { CreateUserInput } from '../dto/CreateUserInput';
 import { User } from '../models/User';
 import { UserSetting } from '../models/UserSetting';
-import { CreateUserInput } from '../utils/CreateUserInput';
 
 export let incrementalId = 3;
 
