@@ -21,5 +21,10 @@ type Query {
 }
 
 type Mutation {
-  createUser: User!
+  createUser(createUserInput: CreateUserInput!): User!
+}
+
+input CreateUserInput {
+  username: String!
+  displayName: String
 }
