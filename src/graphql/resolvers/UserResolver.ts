@@ -1,6 +1,7 @@
 import {
   Args,
   Int,
+  Mutation,
   Parent,
   Query,
   ResolveField,
@@ -31,5 +32,10 @@ export class UserResolver {
     return mockUserSettings.find(
       (userSetting) => userSetting.userId === user.id,
     );
+  }
+
+  @Mutation((returns) => User)
+  createUser() {
+    console.log('pass');
   }
 }
