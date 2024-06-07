@@ -2,9 +2,9 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './graphql/models/User';
 import { UserSetting } from './graphql/models/UserSetting';
 import { UserSettingsResolver } from './graphql/resolvers/UserSettingsResolver';
+import { User } from './users/entities/users.entity';
 import { UsersModule } from './users/users.module';
 require('dotenv').config();
 

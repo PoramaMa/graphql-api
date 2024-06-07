@@ -6,7 +6,7 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { UserSetting } from './UserSetting';
+import { UserSetting } from '../../graphql/models/UserSetting';
 
 @Entity({ name: 'users' })
 @ObjectType()
@@ -19,7 +19,7 @@ export class User {
   @Field()
   username: string;
 
-  @Column()
+  @Column({ nullable: true })
   @Field({ nullable: true })
   displayName?: string;
 
