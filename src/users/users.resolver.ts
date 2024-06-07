@@ -1,4 +1,3 @@
-import { Inject } from '@nestjs/common';
 import {
   Args,
   Int,
@@ -8,7 +7,7 @@ import {
   ResolveField,
   Resolver,
 } from '@nestjs/graphql';
-import { mockUserSettings } from 'src/_mocks/mockUserSettings';
+import { UserSettingsService } from 'src/user_setting/user_setting.service';
 import { UserSetting } from '../user_setting/entities/user_setting.entitie';
 import { CreateUserInput } from './dto/create-user.dto';
 import { User } from './entities/users.entity';
@@ -18,7 +17,10 @@ export let incrementalId = 3;
 
 @Resolver((of) => User)
 export class UserResolver {
-  constructor(@Inject(UserService) private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private userSettingsService: UserSettingsService,
+  ) {}
 
   @Query((returns) => User, { nullable: true })
   getUserById(@Args('id', { type: () => Int }) id: number) {
@@ -35,9 +37,7 @@ export class UserResolver {
     nullable: true,
   })
   getUserSettings(@Parent() user: User) {
-    return mockUserSettings.find(
-      (userSetting) => userSetting.userId === user.id,
-    );
+    return this.userSettingsService.getUserSettingById(user.id);
   }
 
   @Mutation((returns) => User)
