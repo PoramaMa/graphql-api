@@ -4,8 +4,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './graphql/models/User';
 import { UserSetting } from './graphql/models/UserSetting';
-import { UserResolver } from './graphql/resolvers/UserResolver';
 import { UserSettingsResolver } from './graphql/resolvers/UserSettingsResolver';
+import { UsersModule } from './users/users.module';
 require('dotenv').config();
 
 @Module({
@@ -24,8 +24,9 @@ require('dotenv').config();
       entities: [User, UserSetting],
       synchronize: true,
     }),
+    UsersModule,
   ],
   controllers: [],
-  providers: [UserResolver, UserSettingsResolver],
+  providers: [UserSettingsResolver],
 })
 export class AppModule {}
