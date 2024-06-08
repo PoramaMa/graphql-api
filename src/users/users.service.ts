@@ -12,7 +12,10 @@ export class UserService {
   ) {}
 
   getUsers() {
-    return this.userRepository.find();
+    return this.userRepository.find({
+      // ทำหรือไม่ทำก็ได้
+      relations: ['settings'],
+    });
   }
 
   async getUserById(id: number) {
