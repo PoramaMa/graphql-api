@@ -19,7 +19,10 @@ export class UserService {
   }
 
   async getUserById(id: number) {
-    return await this.userRepository.findOneBy({ id });
+    return await this.userRepository.findOne({
+      where: { id },
+      relations: ['settings'],
+    });
   }
 
   async createUser(createUserInput: CreateUserInput) {
